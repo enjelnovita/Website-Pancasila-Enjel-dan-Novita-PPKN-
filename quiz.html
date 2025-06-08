@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuis Interaktif Pancasila</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a1a 0%,
+          #1a1a2e 50%,
+          #16213e 100%
+        );
+        min-height: 100vh;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
+
+      .bg-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 215, 0, 0.1),
+          rgba(255, 165, 0, 0.05)
+        );
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .bg-circle:nth-child(1) {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .bg-circle:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        right: 10%;
+        animation-delay: 5s;
+      }
+
+      .bg-circle:nth-child(3) {
+        width: 150px;
+        height: 150px;
+        bottom: 10%;
+        left: 50%;
+        animation-delay: 10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .header {
+        text-align: center;
+        padding: 1.5rem 2rem;
+        background: rgba(26, 26, 46, 0.3);
+        backdrop-filter: blur(15px);
+        border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #ffd700, #ffaa00, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.3);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+
+      .timer-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .timer {
+        background: rgba(255, 215, 0, 0.2);
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 2px solid rgba(255, 215, 0, 0.5);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .progress-bar {
+        width: 200px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #00ff99, #ffd700);
+        width: 0%;
+        transition: width 0.5s ease;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .kuis-box {
+        background: rgba(26, 26, 46, 0.4);
+        backdrop-filter: blur(20px);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        transform: translateY(20px);
+        opacity: 0;
+        animation: slideIn 0.6s ease forwards;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .kuis-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 215, 0, 0.1),
+          transparent
+        );
+        transition: left 0.8s;
+      }
+
+      .kuis-box:hover::before {
+        left: 100%;
+      }
+
+      @keyframes slideIn {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .kuis-box h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        color: #ffd700;
+        text-align: center;
+      }
+
+      .image-choice {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .image-choice img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 15px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .image-choice img:hover {
+        border-color: #ffd700;
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+      }
+
+      .image-option {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .image-option::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        z-index: 10;
+      }
+
+      .image-option.selected img {
+        border-color: #00ff99;
+        transform: scale(1.05);
+      }
+
+      .text-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .option-btn {
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        color: white;
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .option-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 215, 0, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .option-btn:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        border-color: rgba(255, 215, 0, 0.6);
+      }
+
+      .option-btn:hover::before {
+        left: 100%;
+      }
+
+      .option-btn:disabled {
+        background: rgba(255, 255, 255, 0.2);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .feedback {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.5s ease;
+      }
+
+      .feedback.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .benar {
+        background: rgba(0, 255, 153, 0.2);
+        border: 2px solid #00ff99;
+        color: #00ff99;
+      }
+
+      .salah {
+        background: rgba(255, 94, 94, 0.2);
+        border: 2px solid #ff5e5e;
+        color: #ff5e5e;
+      }
+
+      .result-box {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        padding: 2rem;
+        background: rgba(26, 26, 46, 0.5);
+        backdrop-filter: blur(25px);
+        border-radius: 20px;
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .score-display {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 1rem 0;
+        background: linear-gradient(45deg, #ffd700, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .restart-btn {
+        background: linear-gradient(135deg, #00ff99, #00cc7a);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .restart-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 255, 153, 0.4);
+      }
+
+      .sila-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .sila-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .sila-dot.active {
+        background: #ffd700;
+        transform: scale(1.2);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .container {
+          padding: 0 0.5rem;
+        }
+
+        .kuis-box {
+          padding: 1.5rem;
+        }
+
+        .image-choice {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-animation">
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+      <div class="bg-circle"></div>
+    </div>
+
+    <div class="header">
+      <h1>Kuis Interaktif Pancasila</h1>
+      <div class="timer-container">
+        <div class="timer" id="timer">⏳ Waktu: 60 detik</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="quiz-container"></div>
+      <div id="result-box" class="result-box" style="display: none"></div>
+    </div>
+
+    <div id="time-up-modal" class="modal">
+      <div class="modal-content">
+        <h2>⏱️ Waktu Habis!</h2>
+        <p>Saatnya melihat hasil kuis kamu!</p>
+        <button onclick="closeModal()" class="restart-btn">Lihat Hasil</button>
+      </div>
+    </div>
+
+    <script>
+      const soalTerjawab = {};
+      let skor = 0;
+      let totalSoal = 10;
+      const container = document.getElementById("quiz-container");
+
+      const gambarSoal = {
+        1: {
+          gambar: ["sila1.jpg", "ngantri.jpg", "sila kedua.jpg", "ketiga.jpg"],
+          jawaban: "a",
+          deskripsi: "Sila Pertama - Ketuhanan Yang Maha Esa",
+          pembahasan:
+            "Sila Pertama menekankan ketaqwaan kepada Tuhan Yang Maha Esa. Gambar yang menunjukkan aktivitas ibadah atau simbol agama mencerminkan nilai ini.",
+          penjelasan_pilihan: {
+            a: "✅ Benar - Menunjukkan penghormatan terhadap Tuhan",
+            b: "❌ Lebih menunjukkan kedisiplinan sosial",
+            c: "❌ Tidak secara langsung menunjukkan aspek ketuhanan",
+            d: "❌ Lebih berkaitan dengan nilai persatuan",
+          },
+        },
+        2: {
+          gambar: [
+            "piket.jpg",
+            "jatuh.jpg",
+            "berbagimakan.png",
+            "berkelahi.jpg",
+          ],
+          jawaban: "b",
+          deskripsi: "Sila Kedua - Kemanusiaan yang Adil dan Beradab",
+          pembahasan:
+            "Sila Kedua mengajarkan untuk saling menghormati dan menolong sesama manusia tanpa membedakan latar belakang.",
+          penjelasan_pilihan: {
+            a: "❌ Lebih menunjukkan tanggung jawab bersama",
+            b: "✅ Benar - Menunjukkan kepedulian terhadap sesama",
+            c: "❌ Lebih berkaitan dengan keadilan sosial",
+            d: "❌ Bertentangan dengan nilai kemanusiaan",
+          },
+        },
+        3: {
+          gambar: [
+            "krupuk.jpg",
+            "ketiga.jpg",
+            "bertanibersamasama.jpg",
+            "berbagimakan.png",
+          ],
+          jawaban: "b",
+          deskripsi: "Sila Ketiga - Persatuan Indonesia",
+          pembahasan:
+            "Sila Ketiga menekankan persatuan dan kesatuan bangsa Indonesia dalam keberagaman.",
+          penjelasan_pilihan: {
+            a: "❌ Lebih menunjukkan kearifan lokal",
+            b: "✅ Benar - Menunjukkan semangat persatuan dan gotong royong",
+            c: "❌ Lebih berkaitan dengan kerja sama",
+            d: "❌ Lebih menunjukkan keadilan sosial",
+          },
+        },
+        4: {
+          gambar: [
+            "menolong.jpg",
+            "ketiga.jpg",
+            "musyawarah.jpg",
+            "berkelahi.jpg",
+          ],
+          jawaban: "c",
+          deskripsi:
+            "Sila Keempat - Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan",
+          pembahasan:
+            "Sila Keempat mengajarkan pengambilan keputusan melalui musyawarah dan mufakat dengan bijaksana.",
+          penjelasan_pilihan: {
+            a: "❌ Lebih menunjukkan nilai kemanusiaan",
+            b: "❌ Lebih berkaitan dengan persatuan",
+            c: "✅ Benar - Menunjukkan proses musyawarah untuk mencapai mufakat",
+            d: "❌ Bertentangan dengan nilai permusyawaratan",
+          },
+        },
+        5: {
+          gambar: [
+            "hedon.jpg",
+            "menolong.jpg",
+            "bertanibersamasama.jpg",
+            "pembagiantugaskelompok.jpg",
+          ],
+          jawaban: "d",
+          deskripsi:
+            "Sila Kelima - Keadilan Sosial bagi Seluruh Rakyat Indonesia",
+          pembahasan:
+            "Sila Kelima menekankan keadilan dan pemerataan untuk kesejahteraan bersama.",
+          penjelasan_pilihan: {
+            a: "❌ Menunjukkan sikap berlebihan dan tidak adil",
+            b: "❌ Lebih berkaitan dengan kemanusiaan",
+            c: "❌ Lebih menunjukkan persatuan",
+            d: "✅ Benar - Menunjukkan pembagian tugas dan tanggung jawab yang adil",
+          },
+        },
+      };
+
+      // Buat soal gambar
+      for (let i = 1; i <= 5; i++) {
+        let images = "";
+        const gambar = gambarSoal[i].gambar;
+        ["a", "b", "c", "d"].forEach((huruf, idx) => {
+          images += `
+            <div class="image-option" data-label="${huruf.toUpperCase()}" onclick="jawabGambar(${i}, '${huruf}')">
+              <img src="${gambar[idx]}" alt="Pilihan ${huruf.toUpperCase()}">
+            </div>
+          `;
+        });
+
+        container.innerHTML += `
+          <div class="kuis-box" style="animation-delay: ${i * 0.1}s">
+            <div class="sila-indicator">
+              ${[1, 2, 3, 4, 5]
+                .map(
+                  (n) =>
+                    `<div class="sila-dot ${n === i ? "active" : ""}"></div>`
+                )
+                .join("")}
+            </div>
+            <h3>Soal ${i}: Pilih gambar yang mencerminkan ${
+          gambarSoal[i].deskripsi
+        }</h3>
+            <div class="image-choice">${images}</div>
+            <div class="feedback" id="feedback-gambar-${i}"></div>
+          </div>
+        `;
+      }
+
+      const soalRefleksi = [
+        {
+          no: 6,
+          soal: "Seorang siswa berbeda agama tidak diajak ikut kegiatan keagamaan mayoritas, padahal ia ingin belajar menghargai. Sikap yang mencerminkan Pancasila sebaiknya...",
+          pilihan: [
+            "a. Mengajak semua siswa tanpa melihat latar belakang agama",
+            "b. Hanya mengajak yang seagama untuk menjaga kekhusyukan",
+            "c. Melarang siswa lain mengikuti kegiatan agama tertentu",
+            "d. Membiarkan saja, karena itu urusan pribadi",
+            "e. Meminta guru membatasi partisipasi agar tidak menyinggung",
+          ],
+          benar: "a",
+          pembahasan:
+            "Sila Pertama dan Kedua Pancasila mengajarkan toleransi beragama dan kemanusiaan. Mengajak semua siswa untuk belajar menghargai keberagaman agama mencerminkan sikap inklusif yang sesuai dengan nilai Pancasila.",
+          penjelasan_pilihan: {
+            a: "✅ Menunjukkan toleransi dan inklusivitas sesuai Pancasila",
+            b: "❌ Bersifat eksklusif dan tidak toleran",
+            c: "❌ Melanggar kebebasan beragama",
+            d: "❌ Sikap acuh tak acuh, tidak mencerminkan kepedulian",
+            e: "❌ Membatasi pembelajaran tentang toleransi",
+          },
+        },
+        {
+          no: 7,
+          soal: "Dalam suatu rapat kelas, keputusan diambil oleh ketua kelas tanpa berdiskusi. Apa tindakan yang mencerminkan nilai Pancasila?",
+          pilihan: [
+            "a. Membiarkan saja agar tidak memperpanjang masalah",
+            "b. Menegur ketua kelas agar keputusan tetap diambil sendiri",
+            "c. Mengusulkan diskusi agar semua suara didengar",
+            "d. Melaporkan ke guru tanpa mencoba berdiskusi dulu",
+            "e. Diam karena tidak ingin dianggap melawan",
+          ],
+          benar: "c",
+          pembahasan:
+            "Sila Keempat Pancasila menekankan demokrasi dan musyawarah. Mengusulkan diskusi untuk mendengar semua pendapat mencerminkan nilai permusyawaratan dan perwakilan.",
+          penjelasan_pilihan: {
+            a: "❌ Sikap pasif yang tidak mencerminkan partisipasi demokratis",
+            b: "❌ Tidak menyelesaikan masalah mendasar tentang cara pengambilan keputusan",
+            c: "✅ Menunjukkan semangat musyawarah dan demokrasi",
+            d: "❌ Tidak mencoba solusi internal terlebih dahulu",
+            e: "❌ Sikap tidak produktif dan tidak partisipatif",
+          },
+        },
+        {
+          no: 8,
+          soal: "Dalam upacara bendera, ada siswa yang tidak berdiri tegap saat lagu Indonesia Raya. Sikap yang sesuai dengan Pancasila adalah...",
+          pilihan: [
+            "a. Menegurnya dengan keras di depan umum",
+            "b. Mengabaikannya karena itu bukan urusan kita",
+            "c. Mengingatkannya secara baik-baik tentang pentingnya menghormati simbol negara",
+            "d. Melaporkannya ke OSIS untuk diberi sanksi",
+            "e. Mengajak semua siswa untuk duduk juga sebagai bentuk protes",
+          ],
+          benar: "c",
+          pembahasan:
+            "Sila Ketiga (Persatuan Indonesia) dan Sila Kedua (Kemanusiaan) mengajarkan untuk menghormati simbol negara sambil tetap memperlakukan orang lain dengan baik dan bijaksana.",
+          penjelasan_pilihan: {
+            a: "❌ Cara yang tidak manusiawi dan dapat memalukan",
+            b: "❌ Sikap acuh tak acuh terhadap nilai persatuan",
+            c: "✅ Menunjukkan sikap edukatif dan humanis",
+            d: "❌ Tidak memberikan kesempatan untuk perbaikan pribadi",
+            e: "❌ Merusak nilai persatuan dan menghormati simbol negara",
+          },
+        },
+        {
+          no: 9,
+          soal: "Dalam pembagian tugas kelompok, hanya beberapa siswa yang selalu diberi tugas penting. Apa tindakan yang mencerminkan Pancasila?",
+          pilihan: [
+            "a. Membiarkan karena mereka lebih pintar",
+            "b. Mengusulkan pembagian yang adil dan berdasarkan musyawarah",
+            "c. Menolak ikut tugas karena tidak mendapat peran besar",
+            "d. Mengkritik di luar kelompok agar diubah",
+            "e. Membuat kelompok baru dengan orang yang disukai",
+          ],
+          benar: "b",
+          pembahasan:
+            "Sila Kelima (Keadilan Sosial) dan Sila Keempat (Permusyawaratan) mengajarkan pembagian yang adil melalui diskusi bersama untuk kesejahteraan dan perkembangan semua anggota.",
+          penjelasan_pilihan: {
+            a: "❌ Tidak mencerminkan keadilan dan kesempatan yang sama",
+            b: "✅ Menunjukkan semangat keadilan dan musyawarah",
+            c: "❌ Sikap tidak kooperatif dan merusak persatuan kelompok",
+            d: "❌ Tidak menyelesaikan masalah secara langsung dan konstruktif",
+            e: "❌ Melarikan diri dari masalah, tidak mencerminkan persatuan",
+          },
+        },
+        {
+          no: 10,
+          soal: "Seorang siswa diejek karena berasal dari daerah yang berbeda dan logatnya lucu. Apa respons yang mencerminkan nilai Pancasila?",
+          pilihan: [
+            "a. Tertawa bersama agar tidak dianggap kaku",
+            "b. Menjauh agar tidak terlibat",
+            "c. Menasihati teman agar menghargai keberagaman",
+            "d. Membela dengan balasan ejekan",
+            "e. Melaporkan tanpa berbicara langsung pada pelaku",
+          ],
+          benar: "c",
+          pembahasan:
+            "Sila Ketiga (Persatuan Indonesia) dan Sila Kedua (Kemanusiaan) mengajarkan untuk menghargai keberagaman dan memperlakukan semua orang dengan hormat, serta berani membela yang benar.",
+          penjelasan_pilihan: {
+            a: "❌ Ikut serta dalam tindakan yang merendahkan orang lain",
+            b: "❌ Sikap acuh tak acuh terhadap ketidakadilan",
+            c: "✅ Menunjukkan keberanian membela keberagaman dan kemanusiaan",
+            d: "❌ Membalas dengan cara yang sama buruknya",
+            e: "❌ Tidak memberikan kesempatan untuk dialog dan pembelajaran",
+          },
+        },
+      ];
+
+      // Buat soal refleksi
+      soalRefleksi.forEach(({ no, soal, pilihan, benar }, index) => {
+        let opsi = "";
+        ["a", "b", "c", "d", "e"].forEach((huruf, idx) => {
+          opsi += `<button class="option-btn" onclick="jawabRefleksi(${no}, '${huruf}')">${pilihan[idx]}</button>`;
+        });
+        container.innerHTML += `
+          <div class="kuis-box" style="animation-delay: ${(5 + index) * 0.1}s">
+            <h3>Soal ${no}: ${soal}</h3>
+            <div class="text-options">${opsi}</div>
+            <div class="feedback" id="feedback-refleksi-${no}"></div>
+          </div>
+        `;
+      });
+
+      function jawabGambar(no, pilihan) {
+        const el = document.getElementById("feedback-gambar-" + no);
+        if (!soalTerjawab["gambar" + no]) {
+          soalTerjawab["gambar" + no] = true;
+          const benar = pilihan === gambarSoal[no].jawaban;
+          if (benar) skor++;
+
+          // Highlight selected option
+          const selectedOption = document.querySelector(
+            `[onclick="jawabGambar(${no}, '${pilihan}')"]`
+          );
+          selectedOption.classList.add("selected");
+
+          // Disable other options
+          document
+            .querySelectorAll(`[onclick^="jawabGambar(${no},"]`)
+            .forEach((opt) => {
+              opt.style.pointerEvents = "none";
+            });
+
+          el.className = `feedback ${benar ? "benar" : "salah"} show`;
+          el.innerHTML = benar
+            ? "<p>✅ Benar! Gambar ini mencerminkan nilai Pancasila yang sesuai.</p>"
+            : "<p>❌ Kurang tepat. Coba perhatikan kembali makna dari setiap sila Pancasila.</p>";
+
+          updateProgress();
+          cekSelesai();
+        }
+      }
+
+      function jawabRefleksi(no, pilihan) {
+        const el = document.getElementById("feedback-refleksi-" + no);
+        if (!soalTerjawab["refleksi" + no]) {
+          soalTerjawab["refleksi" + no] = true;
+          const soal = soalRefleksi.find((s) => s.no === no);
+          const benar = pilihan === soal.benar;
+          if (benar) skor++;
+
+          el.className = `feedback ${benar ? "benar" : "salah"} show`;
+          el.innerHTML = benar
+            ? "<p>✅ Excellent! Jawabanmu mencerminkan nilai luhur Pancasila.</p>"
+            : "<p>❌ Coba renungkan kembali nilai-nilai Pancasila dalam kehidupan sehari-hari.</p>";
+
+          el.parentElement.querySelectorAll("button").forEach((btn) => {
+            btn.disabled = true;
+            if (btn.textContent.startsWith(pilihan)) {
+              btn.style.background = benar
+                ? "linear-gradient(135deg, #00ff99, #00cc7a)"
+                : "linear-gradient(135deg, #ff5e5e, #e74c3c)";
+            }
+          });
+
+          updateProgress();
+          cekSelesai();
+        }
+      }
+
+      function updateProgress() {
+        const progress = (Object.keys(soalTerjawab).length / totalSoal) * 100;
+        document.getElementById("progress").style.width = progress + "%";
+      }
+
+      function cekSelesai() {
+        if (Object.keys(soalTerjawab).length === totalSoal) {
+          setTimeout(tampilkanHasil, 500);
+        }
+      }
+
+      function tampilkanHasil() {
+        let hasil = "";
+        let emoji = "";
+
+        if (skor >= 9) {
+          hasil =
+            "Luar biasa! Kamu sangat memahami dan menghayati nilai-nilai Pancasila. Teruslah menjadi teladan!";
+          emoji = "🏆";
+        } else if (skor >= 7) {
+          hasil =
+            "Bagus sekali! Pemahamanmu tentang Pancasila sudah cukup baik. Tingkatkan terus!";
+          emoji = "🎉";
+        } else if (skor >= 5) {
+          hasil =
+            "Lumayan! Masih ada ruang untuk memperdalam pemahaman tentang Pancasila.";
+          emoji = "👍";
+        } else if (skor >= 3) {
+          hasil =
+            "Semangat! Perlu belajar lebih giat lagi tentang nilai-nilai Pancasila.";
+          emoji = "📚";
+        } else {
+          hasil =
+            "Jangan menyerah! Mari kita pelajari bersama nilai-nilai luhur Pancasila.";
+          emoji = "💪";
+        }
+
+        const resultBox = document.getElementById("result-box");
+        resultBox.style.display = "block";
+        resultBox.innerHTML = `
+          <div style="font-size: 4rem; margin-bottom: 1rem;">${emoji}</div>
+          <div class="score-display">${skor}/10</div>
+          <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">${hasil}</p>
+          <button onclick="location.reload()" class="restart-btn">🔄 Coba Lagi</button>
+        `;
+
+        resultBox.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function closeModal() {
+        document.getElementById("time-up-modal").style.display = "none";
+        tampilkanHasil();
+      }
+
+      // Timer functionality
+      let waktu = 60;
+      const timerEl = document.getElementById("timer");
+      const countdown = setInterval(() => {
+        waktu--;
+        timerEl.textContent = `⏳ Waktu: ${waktu} detik`;
+
+        if (waktu <= 10) {
+          timerEl.style.background = "rgba(255, 94, 94, 0.3)";
+          timerEl.style.borderColor = "rgba(255, 94, 94, 0.7)";
+        }
+
+        if (waktu <= 0) {
+          clearInterval(countdown);
+          document.querySelectorAll("img, button").forEach((el) => {
+            if (!el.classList.contains("restart-btn")) {
+              el.style.pointerEvents = "none";
+              el.style.opacity = "0.5";
+            }
+          });
+          document.getElementById("time-up-modal").style.display = "block";
+          timerEl.textContent = "⏱️ Waktu habis!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

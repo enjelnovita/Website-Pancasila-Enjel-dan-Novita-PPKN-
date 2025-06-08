@@ -1,0 +1,3311 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suara yang Terlupa: Gema Pancasila dalam Hening Generasi</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: #0a0a1a;
+        color: #fff;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(10, 10, 26, 0.95);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: 800;
+      }
+
+      .logo i {
+        color: #ff6b35;
+        font-size: 2rem;
+        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav-menu a:hover {
+        color: #ff6b35;
+        transform: translateY(-2px);
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b35, #ffd700);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #0a0a1a 0%,
+          #1a1a3e 30%,
+          #2d2d5f 70%,
+          #ff6b35 100%
+        );
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 107, 53, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 215, 0, 0.3) 0%,
+            transparent 50%
+          ),
+          linear-gradient(rgba(10, 10, 26, 0.8), rgba(26, 26, 62, 0.8)),
+          url("pancasila.jpeg")
+            center/cover no-repeat;
+        z-index: 0;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,107,53,0.3)"/><circle cx="60" cy="80" r="1.5" fill="rgba(255,215,0,0.2)"/></svg>')
+          repeat;
+        animation: sparkle 30s linear infinite;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 1200px;
+        padding: 0 2rem;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 900;
+        background: linear-gradient(45deg, #fff, #ff6b35, #ffd700, #fff);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        animation: slideInUp 1s ease-out, gradientShift 4s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.4rem, 4vw, 2.5rem);
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 3rem;
+        animation: slideInUp 1s ease-out 0.3s both;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        background: linear-gradient(45deg, #ff6b35, #ff8c42, #ffd700);
+        color: white;
+        padding: 1.2rem 3rem;
+        border-radius: 60px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: all 0.4s ease;
+        box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        animation: slideInUp 1s ease-out 0.6s both;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .hero-cta:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
+        background: linear-gradient(45deg, #ffd700, #ff6b35, #ff8c42);
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 8rem 0;
+        position: relative;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 5rem;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 1.5rem;
+        position: relative;
+        background: linear-gradient(45deg, #fff, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 5px;
+        background: linear-gradient(90deg, #ff6b35, #ffd700, #ff6b35);
+        margin: 1.5rem auto;
+        border-radius: 3px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .section-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 700px;
+        margin: 0 auto;
+        font-weight: 300;
+        line-height: 1.8;
+      }
+
+      /* Welcome Section */
+      .welcome-section {
+        background: linear-gradient(
+          180deg,
+          #0a0a1a 0%,
+          #1a1a3e 50%,
+          #2d2d5f 100%
+        );
+      }
+
+      .welcome-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin-top: 5rem;
+      }
+
+      .welcome-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        padding: 3rem;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .welcome-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 107, 53, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+
+      .welcome-card:hover::before {
+        transform: translateX(100%);
+      }
+
+      .welcome-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 107, 53, 0.4);
+        box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+      }
+
+      .welcome-card h3 {
+        color: #ff6b35;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .welcome-card h3 i {
+        font-size: 2rem;
+        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+      }
+
+      .welcome-card p {
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.8;
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
+
+      /* History Section */
+      .history-section {
+        background: linear-gradient(
+          180deg,
+          #2d2d5f 0%,
+          #1a1a3e 50%,
+          #0a0a1a 100%
+        );
+      }
+
+      .history-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 4rem;
+      }
+
+      .history-text > * + * {
+        margin-top: 2rem;
+      }
+
+      .history-text h3 {
+        color: #ffd700;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .history-text p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .history-highlight {
+        background: linear-gradient(45deg, #ff6b35, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 600;
+      }
+
+      .history-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .timeline-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid #ff6b35;
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-item:hover {
+         transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.08);
+        border-left-color: #ffd700;
+      }
+
+      .timeline-date {
+        color: #ff6b35;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-event {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+      }
+
+      /* Pancasila Section */
+      .pancasila-section {
+        background: linear-gradient(
+          180deg,
+          #0a0a1a 0%,
+          #1a1a3e 50%,
+          #2d2d5f 100%
+        );
+      }
+
+      .pancasila-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 5rem;
+      }
+
+      .sila-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sila-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.8s ease;
+      }
+
+      .sila-card:hover::before {
+        left: 100%;
+      }
+
+      .sila-card:hover {
+        transform: translateY(-15px) scale(1.03);
+        border-color: var(--sila-color);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .sila-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        transition: all 0.4s ease;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .sila-card:hover .sila-icon {
+        transform: scale(1.15) rotate(5deg);
+        border-color: var(--sila-color);
+        box-shadow: 0 0 30px var(--sila-glow);
+      }
+
+      .sila-1 {
+        --sila-color: #ffd700;
+        --sila-glow: rgba(255, 215, 0, 0.5);
+      }
+      .sila-1 .sila-icon {
+        background: linear-gradient(45deg, #ffd700, #ffed4e);
+      }
+
+      .sila-2 {
+        --sila-color: #ff6b35;
+        --sila-glow: rgba(255, 107, 53, 0.5);
+      }
+      .sila-2 .sila-icon {
+        background: linear-gradient(45deg, #ff6b35, #ff8c42);
+      }
+
+      .sila-3 {
+        --sila-color: #10b981;
+        --sila-glow: rgba(16, 185, 129, 0.5);
+      }
+      .sila-3 .sila-icon {
+        background: linear-gradient(45deg, #10b981, #34d399);
+      }
+
+      .sila-4 {
+        --sila-color: #3b82f6;
+        --sila-glow: rgba(59, 130, 246, 0.5);
+      }
+      .sila-4 .sila-icon {
+        background: linear-gradient(45deg, #3b82f6, #60a5fa);
+      }
+
+      .sila-5 {
+        --sila-color: #8b5cf6;
+        --sila-glow: rgba(139, 92, 246, 0.5);
+      }
+       .sila-5 .sila-icon {
+        background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+      }
+
+      .sila-title {
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+      }
+
+      .sila-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+
+      /* Tokoh Section */
+      .tokoh-section {
+        background: linear-gradient(
+          180deg,
+          #2d2d5f 0%,
+          #1a1a3e 50%,
+          #0a0a1a 100%
+        );
+      }
+
+      .tokoh-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+        margin-top: 5rem;
+      }
+
+      .tokoh-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tokoh-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 107, 53, 0.1),
+          transparent
+        );
+        transform: scale(0);
+        transition: transform 0.5s ease;
+        border-radius: 20px;
+      }
+
+      .tokoh-card:hover::before {
+        transform: scale(1);
+      }
+
+      .tokoh-card:hover {
+        transform: translateY(-10px);
+        border-color: #ff6b35;
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+      }
+
+      .tokoh-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+.tokoh-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+      .tokoh-card:hover .tokoh-image {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+      }
+
+      .tokoh-name {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .tokoh-role {
+        color: #ff6b35;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .tokoh-description {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Video Section */
+      .video-section {
+        background: linear-gradient(
+          180deg,
+          #0a0a1a 0%,
+          #1a1a3e 50%,
+          #2d2d5f 100%
+        );
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 5rem;
+      }
+
+      .video-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 1.5rem;
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+
+      .video-card:hover {
+        transform: translateY(-10px);
+        border-color: #ff6b35;
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        background: #000;
+      }
+
+      .video-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+      }
+
+      .video-title {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+      }
+
+      .video-description {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Vision Section */
+      .vision-section {
+        background: linear-gradient(180deg, #2d2d5f 0%, #0a0a1a 100%);
+        border-top: 2px solid rgba(255, 107, 53, 0.3);
+      }
+
+      .vision-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .vision-text {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.9;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+      }
+/* Untuk semua jenis card */
+[class$="-card"] {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Gambar dalam card */
+[class$="-card"] img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Judul responsif */
+[class$="-card"] h3 {
+  font-size: clamp(1rem, 4.5vw, 1.5rem);
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Paragraf responsif */
+[class$="-card"] p {
+  font-size: clamp(0.9rem, 3.5vw, 1rem);
+  line-height: 1.6;
+}
+
+      .vision-highlight {
+        background: linear-gradient(45deg, #ff6b35, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        font-size: 1.1em;
+      }
+
+      /* Scroll Indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 3rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        animation: bounce 2s infinite;
+        z-index: 3;
+      }
+
+      .scroll-arrow {
+        width: 30px;
+        height: 30px;
+        border-right: 3px solid currentColor;
+        border-bottom: 3px solid currentColor;
+        transform: rotate(45deg);
+        margin: 0 auto 0.5rem;
+        filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 0 1rem;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-menu {
+          gap: 1.5rem;
+        }
+
+        .hero-content {
+          padding: 0 1rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .welcome-grid,
+        .pancasila-grid,
+        .tokoh-grid,
+        .video-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .history-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .section {
+          padding: 5rem 0;
+        }
+
+        .welcome-card,
+        .sila-card,
+        .tokoh-card {
+          padding: 2rem;
+             }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .nav-menu {
+          gap: 1rem;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      /* Crisis Section */
+      .crisis-section {
+        background: linear-gradient(
+          180deg,
+          #2d2d5f 0%,
+          #1a1a3e 50%,
+          #0a0a1a 100%
+        );
+        border-top: 3px solid rgba(255, 107, 53, 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .crisis-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 107, 53, 0.05),
+          transparent
+        );
+        animation: sweep 8s ease-in-out infinite;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 1rem;
+        font-style: italic;
+      }
+
+      .crisis-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .crisis-overview {
+        margin-bottom: 4rem;
+      }
+
+      .main-crisis {
+        background: rgba(255, 107, 53, 0.15);
+        border: 2px solid rgba(255, 107, 53, 0.4);
+        border-radius: 25px;
+        padding: 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transition: all 0.5s ease;
+      }
+
+      .main-crisis:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 107, 53, 0.6);
+      }
+
+      .main-crisis::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 107, 53, 0.1),
+          transparent
+        );
+        animation: pulse-bg 4s ease-in-out infinite;
+      }
+
+      .crisis-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(135deg, #ff6b35, #ff8c42, #ffb347);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: white;
+        box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        position: relative;
+        animation: float-icon 3s ease-in-out infinite;
+      }
+
+      .crisis-icon::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+         height: calc(100% + 10px);
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b35, #ff8c42);
+        opacity: 0.3;
+        animation: pulse-ring 2s ease-in-out infinite;
+      }
+
+      .main-crisis h3 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .main-crisis p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        z-index: 2;
+      }
+
+      .crisis-highlight {
+        background: linear-gradient(135deg, #ff6b35, #ffb347);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-shadow: none;
+      }
+
+      /* Indicators Section */
+      .crisis-indicators {
+        margin-top: 4rem;
+      }
+
+      .sub-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .indicator-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .indicator-item {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.1),
+          rgba(255, 140, 66, 0.05)
+        );
+        border: 1px solid rgba(255, 107, 53, 0.3);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .indicator-item:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+        border-color: rgba(255, 107, 53, 0.5);
+      }
+
+      .indicator-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .indicator-item:hover::before {
+        left: 100%;
+      }
+
+      .indicator-item i {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #ff6b35, #ffb347);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: block;
+        animation: bounce 2s ease-in-out infinite;
+      }
+
+      .indicator-item h4 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .indicator-item p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+      }
+     .pelanggaran-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.pelanggaran-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.pelanggaran-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+}
+
+.pelanggaran-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.pelanggaran-content {
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.pelanggaran-content h3 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.pelanggaran-content a {
+  margin-top: 1rem;
+  display: inline-block;
+  color: #ff6b35;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pelanggaran-content a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+.survey-summary {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.survey-summary h3 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.survey-summary ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.section_new {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .survey-chart-area {
+            width: 100%;
+        }
+
+        .survey-chart-area h3 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .survey-chart-area h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .chart-container {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .chart-container:nth-child(1) { animation-delay: 0.1s; border-color: #e74c3c; }
+        .chart-container:nth-child(2) { animation-delay: 0.2s; border-color: #f39c12; }
+        .chart-container:nth-child(3) { animation-delay: 0.3s; border-color: #27ae60; }
+        .chart-container:nth-child(4) { animation-delay: 0.4s; border-color: #3498db; }
+        .chart-container:nth-child(5) { animation-delay: 0.5s; border-color: #9b59b6; }
+        .chart-container:nth-child(6) { animation-delay: 0.6s; border-color: #1abc9c; }
+        .chart-container:nth-child(7) { animation-delay: 0.7s; border-color: #e67e22; }
+        .chart-container:nth-child(8) { animation-delay: 0.8s; border-color: #34495e; }
+
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: 1;
+        }
+
+        .chart-container:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .chart-container:hover::before {
+            transform: translateX(100%);
+        }
+
+        .survey-chart {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .survey-chart:hover {
+            transform: scale(1.05);
+        }
+
+        .chart-title {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 3;
+            backdrop-filter: blur(5px);
+        }
+
+        .chart-container:hover .chart-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chart-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 3;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .chart-container:hover .chart-badge {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Modal untuk zoom gambar */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+        .loading-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 2s infinite;
+            border-radius: 10px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .chart-grid {
+                gap: 20px;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+            
+            .survey-chart-area h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chart-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .section {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .survey-chart-area h3 {
+                font-size: 1.5rem;
+            }
+            
+            .chart-container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .survey-chart-area h3 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .chart-grid {
+                gap: 10px;
+            }
+            
+            .chart-container {
+                padding: 10px;
+            }
+        }
+
+        /* Hover effects untuk desktop */
+        @media (hover: hover) {
+            .chart-container {
+                cursor: pointer;
+            }
+            
+            .chart-container:hover .survey-chart {
+                filter: brightness(1.1);
+            }
+        }
+
+        /* Focus states untuk accessibility */
+        .chart-container:focus-within {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .section {
+                box-shadow: none;
+                background: white;
+            }
+            
+            .chart-container {
+                break-inside: avoid;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+.solusi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.solusi-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  color: white;
+  transition: all 0.3s ease;
+  border-left: 5px solid #ffd700;
+}
+
+.solusi-card h3 {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 0.8rem;
+}
+
+.solusi-card:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.aksi-pancasila-section {
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 3rem 1rem;
+  border-radius: 15px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.button-group {
+  margin: 1.5rem 0;
+}
+
+.button-group button {
+  background-color: #ff6b35;
+  border: none;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  margin: 0.3rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #ffd700;
+  color: #1a1a2e;
+}
+
+.aksi-output {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* bagian survei */
+.dashboard-wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .dashboard-header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: white;
+      }
+
+      .dashboard-header h1 {
+        font-size: 2.8em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .dashboard-header p {
+        font-size: 1.3em;
+        opacity: 0.9;
+      }
+
+      .metrics-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 25px;
+        margin-bottom: 50px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .metric-tile {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 35px 25px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .metric-tile::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.6s ease;
+      }
+
+      .metric-tile:hover::before {
+        left: 100%;
+      }
+
+      .metric-tile:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      }
+
+      .metric-value {
+        font-size: 3.8em;
+        font-weight: 800;
+        margin-bottom: 12px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      .metric-title {
+        font-size: 1.2em;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .metric-desc {
+        font-size: 0.95em;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+
+      .metric-progress {
+        width: 100%;
+        height: 6px;
+        background: #e8e8e8;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-top: auto;
+      }
+
+      .progress-indicator {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 3px;
+        transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .visualization-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .chart-panel {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .chart-panel:hover {
+        transform: translateY(-5px);
+      }
+
+      .chart-heading {
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #333;
+        text-align: center;
+      }
+
+      .chart-area {
+        position: relative;
+        height: 320px;
+        margin-bottom: 20px;
+      }
+
+      .analysis-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .insight-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .insight-box {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .insight-box:nth-child(1) {
+            border-left-color: #e74c3c;
+            animation-delay: 0.1s;
+        }
+
+        .insight-box:nth-child(2) {
+            border-left-color: #f39c12;
+            animation-delay: 0.2s;
+        }
+
+        .insight-box:nth-child(3) {
+            border-left-color: #27ae60;
+            animation-delay: 0.3s;
+        }
+
+        .insight-box:nth-child(4) {
+            border-left-color: #3498db;
+            animation-delay: 0.4s;
+        }
+
+        .insight-box:nth-child(5) {
+            border-left-color: #9b59b6;
+            animation-delay: 0.5s;
+        }
+
+        .insight-box:nth-child(6) {
+            border-left-color: #1abc9c;
+            animation-delay: 0.6s;
+        }
+
+        .insight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .insight-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .insight-box:hover::before {
+            transform: translateX(100%);
+        }
+
+        .insight-box h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .insight-box p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .insight-box:hover p {
+            color: #333;
+        }
+
+        .insight-box.active {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            margin-top: 15px;
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        .insight-box:hover .progress-bar {
+            width: 100%;
+        }
+
+        .dashboard-footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stats-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .insight-box:hover .stats-overlay {
+            opacity: 1;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .insight-box.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-section {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .insight-layout {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .insight-box {
+                padding: 20px;
+            }
+
+            .insight-box h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.7rem;
+            color: #999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .insight-box:hover .click-hint {
+            opacity: 1;
+        }
+        
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .metrics-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .visualization-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .dashboard-wrapper {
+          padding: 15px;
+        }
+
+        .dashboard-header h1 {
+          font-size: 2.2em;
+        }
+
+        .dashboard-header p {
+          font-size: 1.1em;
+        }
+
+        .metrics-container {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .metric-tile {
+          min-height: 160px;
+          padding: 25px 20px;
+        }
+
+        .metric-value {
+          font-size: 3em;
+        }
+
+        .chart-area {
+          height: 280px;
+        }
+
+        .visualization-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .chart-panel {
+          padding: 20px;
+        }
+
+        .analysis-section {
+          padding: 25px;
+        }
+
+        .insight-layout {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .dashboard-header h1 {
+          font-size: 1.8em;
+        }
+
+        .metric-value {
+          font-size: 2.5em;
+        }
+
+        .metric-title {
+          font-size: 1.1em;
+        }
+
+        .chart-area {
+          height: 250px;
+        }
+
+        .modal-container {
+          width: 95%;
+          padding: 25px;
+          margin: 5% auto;
+        }
+      }
+
+      .btn-kuis {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #ff6b35;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-kuis:hover {
+  background-color: #ffd700;
+  color: #1a1a2e;
+}
+.mobile-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0a0a1a;
+    padding: 1rem 2rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-flag"></i>
+          <span>Gema Pancasila</span>
+        </div>
+        <div class="mobile-menu-icon" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#welcome">Tentang</a></li>
+          <li><a href="#history">Sejarah</a></li>
+          <li><a href="#nilai">Nilai</a></li>
+          <li><a href="#tokoh">Tokoh</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#tantangan">Tantangan</a></li>
+          <li><a href="#kasus">Kasus</a></li>
+          <li><a href="#hasil-survei">Survei</a></li>
+          <li><a href="#solusi">Solusi</a></li>
+          <li><a href="#kuis">Kuis</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">Suara yang Terlupa</h1>
+        <p class="hero-subtitle">Gema Pancasila dalam Hening Generasi</p>
+        <a href="#welcome" class="hero-cta">Mulai Perjalanan</a>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+        <small>Scroll</small>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section section" id="welcome">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Selamat Datang</h2>
+          <p class="section-subtitle">
+            Mari bersama-sama menghidupkan kembali semangat dan nilai-nilai
+            luhur Pancasila dalam kehidupan sehari-hari generasi modern
+          </p>
+        </div>
+
+        <div class="welcome-grid">
+          <div class="welcome-card">
+            <h3><i class="fas fa-eye"></i> Visi Kami</h3>
+            <p>
+              Kami berkomitmen untuk menjadi jembatan penghubung antara generasi
+              masa lalu, kini, dan mendatang dalam memahami, menghayati, dan
+              mengimplementasikan nilai-nilai Pancasila dalam kehidupan
+              bermasyarakat, berbangsa, dan bernegara.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section section" id="history">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Sejarah Lahirnya Pancasila</h2>
+          <p class="section-subtitle">
+            Perjalanan panjang perumusan dasar negara Indonesia yang penuh makna
+            dan perjuangan
+          </p>
+        </div>
+
+        <div class="history-content">
+          <div class="history-text">
+            <h3><i class="fas fa-landmark"></i> Latar Belakang</h3>
+            <p>
+              Pancasila lahir dari
+              <span class="history-highlight">kebutuhan mendesak</span> para
+              pendiri bangsa untuk merumuskan dasar negara yang dapat
+              mempersatukan seluruh elemen masyarakat Indonesia yang sangat
+              beragam. Dalam suasana menjelang kemerdekaan, para tokoh nasional
+              menyadari pentingnya memiliki ideologi yang dapat menjadi
+              pemersatu bangsa.
+            </p>
+
+            <h3><i class="fas fa-users"></i> Proses Perumusan</h3>
+            <p>
+              Perumusan Pancasila melalui diskusi intensif dalam  <span class="history-highlight"
+                >Badan Penyelidik Usaha-Usaha Kemerdekaan Indonesia
+                (BPUPKI)</span
+              >
+              pada tahun 1945. Para tokoh seperti Soekarno, Mohammad Hatta, dan
+              tokoh-tokoh lainnya berkontribusi dalam merumuskan dasar negara
+              yang mencerminkan kepribadian bangsa Indonesia.
+            </p>
+
+            <h3><i class="fas fa-star"></i> Kelahiran Resmi</h3>
+            <p>
+              Pancasila secara resmi ditetapkan sebagai
+              <span class="history-highlight">dasar negara Indonesia</span> pada
+              tanggal 18 Agustus 1945, sehari setelah proklamasi kemerdekaan.
+              Penetapan ini menandai lahirnya ideologi bangsa yang akan menjadi
+              pedoman hidup berbangsa dan bernegara.
+            </p>
+          </div>
+
+          <div class="history-visual">
+            <div class="timeline-item">
+              <div class="timeline-date">29 Mei 1945</div>
+              <div class="timeline-event">
+                Pidato Bung Karno tentang "Lahirnya Pancasila" dalam sidang
+                BPUPKI
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1 Juni 1945</div>
+              <div class="timeline-event">
+                Penetapan tanggal 1 Juni sebagai Hari Lahir Pancasila
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">22 Juni 1945</div>
+              <div class="timeline-event">
+                Pembentukan Panitia Sembilan untuk merumuskan Piagam Jakarta
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">18 Agustus 1945</div>
+              <div class="timeline-event">
+                Penetapan resmi Pancasila sebagai dasar negara Indonesia
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pancasila-section">
+        <div class="container">
+            <h2 class="section-title" id="nilai">Nilai Pancasila</h2>
+            
+            <div class="pancasila-grid">
+                <!-- Sila 1 -->
+                <div class="sila-card sila-1">
+                    <div class="sila-icon">⭐</div>
+                    <h3 class="sila-title">Ketuhanan Yang Maha Esa</h3>
+                    <div class="sila-text">
+                        <div class="sila-makna">Makna: Mengakui keberadaan Tuhan Yang Maha Esa dan menjalankan ajaran agama dengan penuh ketakwaan.</div>
+                        <div class="sila-nilai">Nilai: Toleransi beragama, ketakwaan, dan kerukunan antar umat beragama.</div>
+                    </div>
+                </div>
+
+                <!-- Sila 2 -->
+                <div class="sila-card sila-2">
+                    <div class="sila-icon">👥</div>
+                    <h3 class="sila-title">Kemanusiaan yang Adil dan Beradab</h3>
+                    <div class="sila-text">
+                        <div class="sila-makna">Makna: Menghormati harkat dan martabat manusia sebagai makhluk Tuhan yang mulia.</div>
+                        <div class="sila-nilai">Nilai: Keadilan, kesetaraan, penghormatan HAM, dan sikap tidak diskriminatif.</div>
+                    </div>
+                </div>
+
+                <!-- Sila 3 -->
+                <div class="sila-card sila-3">
+                    <div class="sila-icon">🌴</div>
+                    <h3 class="sila-title">Persatuan Indonesia</h3>
+                    <div class="sila-text">
+                        <div class="sila-makna">Makna: Mengutamakan kepentingan bangsa dan negara di atas kepentingan pribadi atau golongan.</div>
+                        <div class="sila-nilai">Nilai: Nasionalisme, patriotisme, cinta tanah air, dan persatuan dalam keberagaman.</div>
+                    </div>
+                </div>
+
+                <!-- Sila 4 -->
+                <div class="sila-card sila-4">
+                    <div class="sila-icon">👥</div>
+                    <h3 class="sila-title">Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</h3>
+                    <div class="sila-text">
+                        <div class="sila-makna">Makna: Mengutamakan kepentingan rakyat dalam pengambilan keputusan negara.</div>
+                        <div class="sila-nilai">Nilai: Demokrasi, musyawarah mufakat, kearifan, dan partisipasi rakyat.</div>
+                    </div>
+                </div>
+
+                <!-- Sila 5 -->
+                <div class="sila-card sila-5">
+                    <div class="sila-icon">🤝</div>
+                    <h3 class="sila-title">Keadilan Sosial bagi Seluruh Rakyat Indonesia</h3>
+                    <div class="sila-text">
+                        <div class="sila-makna">Makna: Mewujudkan keadilan dan kesejahteraan sosial yang merata.</div>
+                        <div class="sila-nilai">Nilai: Keadilan ekonomi, pemerataan kesejahteraan, kepedulian sosial, kerja keras, menghargai karya orang lain, dan tanggung jawab bersama untuk menciptakan masyarakat yang adil dan makmur.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="aksi-pancasila" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Aksi Nyata Pancasila</h2>
+      <p class="section-subtitle">Klik salah satu sila di bawah untuk melihat  contoh aksi nyata yang mencerminkan nilai tersebut dalam kehidupan sehari-hari.</p>
+    </div>
+
+    <div class="aksi-pancasila-section">
+      <div class="button-group">
+        <button onclick="tampilkanAksi(1)">Sila 1</button>
+        <button onclick="tampilkanAksi(2)">Sila 2</button>
+        <button onclick="tampilkanAksi(3)">Sila 3</button>
+        <button onclick="tampilkanAksi(4)">Sila 4</button>
+        <button onclick="tampilkanAksi(5)">Sila 5</button>
+      </div>
+
+      <div id="output-aksi" class="aksi-output"></div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Tokoh Section -->
+    <section class="tokoh-section section" id="tokoh">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Tokoh-Tokoh Penting Perumusan Pancasila</h2>
+           <p class="section-subtitle">
+            Para pemimpin visioner yang berperan dalam merumuskan dan menetapkan
+            Pancasila sebagai dasar negara Indonesia
+          </p>
+        </div>
+
+        <div class="tokoh-grid">
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="soekarno.jpeg" alt="">
+            </div>
+            <div class="tokoh-name">Ir. Soekarno</div>
+            <div class="tokoh-role">Proklamator & Presiden Pertama RI</div>
+            <p class="tokoh-description">
+              Pencetus istilah "Pancasila" dan penyampai pidato bersejarah pada
+              1 Juni 1945 yang kemudian diperingati sebagai Hari Lahir
+              Pancasila. Beliau merumuskan lima sila dengan bahasa yang mudah
+              dipahami rakyat.
+            </p>
+          </div>
+
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="moh hatta.jpg" alt="">
+            </div>
+            <div class="tokoh-name">Drs. Mohammad Hatta</div>
+            <div class="tokoh-role">
+              Proklamator & Wakil Presiden Pertama RI
+            </div>
+            <p class="tokoh-description">
+              Berperan penting dalam penyempurnaan rumusan Pancasila, terutama
+              pada sila pertama. Beliau mengusulkan perubahan dari "Ketuhanan
+              dengan kewajiban menjalankan syariat Islam bagi
+              pemeluk-pemeluknya" menjadi "Ketuhanan Yang Maha Esa".
+            </p>
+          </div>
+
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="download.webp" alt="">
+            </div>
+            <div class="tokoh-name">Prof. Dr. Soepomo</div>
+            <div class="tokoh-role">Ahli Hukum Tata Negara</div>
+            <p class="tokoh-description">
+              Memberikan kontribusi pemikiran tentang struktur negara Indonesia
+              dan hubungannya dengan Pancasila. Beliau juga berperan dalam
+              penyusunan UUD 1945 yang berlandaskan Pancasila.
+            </p>
+          </div>
+
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="images.webp" alt="">
+            </div>
+            <div class="tokoh-name">Mr. Muhammad Yamin</div>
+            <div class="tokoh-role">Ahli Hukum & Sastrawan</div>
+            <p class="tokoh-description">
+              Salah satu tokoh yang mengusulkan rumusan dasar negara pada 29 Mei
+              1945 dalam sidang BPUPKI. Usulannya meliputi peri kebangsaan, peri
+              kemanusiaan, peri ketuhanan, peri kerakyatan, dan kesejahteraan
+              rakyat.
+            </p>
+          </div>
+
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="download (1).webp" alt="">
+            </div>
+            <div class="tokoh-name">KH. Wahid Hasyim</div>
+            <div class="tokoh-role">Tokoh Agama & Pendidikan</div>
+            <p class="tokoh-description">
+              Mewakili golongan Islam yang berperan dalam merumuskan sila
+               pertama Pancasila. Beliau mendukung rumusan "Ketuhanan Yang Maha
+              Esa" demi menjaga persatuan bangsa Indonesia yang plural.
+            </p>
+          </div>
+
+          <div class="tokoh-card">
+            <div class="tokoh-image">
+              <img src="download.jpeg" alt="">
+            </div>
+            <div class="tokoh-name">A.A. Maramis</div>
+            <div class="tokoh-role">Tokoh Nasional Kristiani</div>
+            <p class="tokoh-description">
+              Mewakili golongan Kristen dalam BPUPKI dan berperan dalam
+              perumusan Pancasila. Beliau mendukung rumusan yang dapat diterima
+              semua golongan agama di Indonesia, termasuk perubahan sila
+              pertama.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section section" id="video">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Video Pembelajaran Pancasila</h2>
+          <p class="section-subtitle">
+            Koleksi video edukatif untuk memperdalam pemahaman tentang sejarah,
+            makna, dan implementasi Pancasila dalam kehidupan berbangsa
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/sxlYdRmg_d8"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h4 class="video-title">Sejarah Perumusan Pancasila</h4>
+            <p class="video-description">
+              Video ini menjelaskan secara detail proses bersejarah perumusan
+              Pancasila mulai dari sidang BPUPKI hingga penetapannya sebagai
+              dasar negara Indonesia.
+            </p>
+          </div>
+
+          <div class="video-card">
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/5FWED7RP2Og"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <h4 class="video-title">Mengenal Lambang Negara Indonesia</h4>
+  <p class="video-description">
+    Penjelasan tentang arti dan filosofi lambang negara Garuda Pancasila, mulai dari makna tiap simbol, warna, hingga semboyan "Bhinneka Tunggal Ika".
+  </p>
+</div>
+
+
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/d2EhNMnXZYY"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h4 class="video-title">Tokoh-Tokoh Perumus Pancasila</h4>
+            <p class="video-description">
+              Mengenal lebih dekat para tokoh bangsa yang berperan penting dalam
+              perumusan dan penetapan Pancasila sebagai ideologi bangsa
+              Indonesia.
+            </p>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe
+              src="https://www.youtube.com/embed/eFmWmkdz494"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h4 class="video-title">Pancasila dalam Kehidupan Modern</h4>
+            <p class="video-description">
+              Bagaimana relevansi dan implementasi nilai-nilai Pancasila dalam
+              menghadapi tantangan zaman modern dan era globalisasi.
+            </p>
+          </div>
+
+          <div class="video-card">
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/HP-5iW4XfIk"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <h4 class="video-title">Pancasila sebagai Ideologi Terbuka</h4>
+            <p class="video-description">
+              Memahami konsep Pancasila sebagai ideologi terbuka yang dapat
+              beradaptasi dengan perkembangan zaman tanpa kehilangan nilai-nilai
+              dasarnya.
+            </p>
+          </div>
+          <div class="video-card">
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/7sMUavUymfs"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <h4 class="video-title">Makna dan Penerapan Pancasila</h4>
+  <p class="video-description">
+    Penjabaran setiap sila dalam Pancasila beserta contoh penerapannya dalam kehidupan sehari-hari di berbagai bidang seperti pendidikan, sosial, dan berbangsa.
+  </p>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crisis Section -->
+    <section class="crisis-section section" id="tantangan">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Fenomena Menurunnya Kesadaran Pancasila</h2>
+          <p class="section-subtitle">
+            Mengidentifikasi tantangan dan ancaman terhadap nilai-nilai
+            Pancasila di era modern
+          </p>
+        </div>
+
+        <div class="crisis-content">
+          <div class="crisis-overview reveal">
+            <div class="crisis-card main-crisis">
+              <div class="crisis-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <h3>Krisis Nilai Kebangsaan</h3>
+              <p>
+                Di tengah arus globalisasi dan digitalisasi, Indonesia
+                menghadami tantangan serius berupa
+                <span class="crisis-highlight"
+                  >memudarnya kesadaran akan nilai-nilai Pancasila</span
+                >
+                di kalangan masyarakat, terutama generasi muda. Fenomena ini
+                terlihat dari berbagai peristiwa yang menunjukkan lemahnya
+                pemahaman dan pengamalan Pancasila dalam kehidupan sehari-hari.
+              </p>
+            </div>
+          </div>
+
+          <div class="crisis-indicators reveal">
+            <h3 class="sub-title">Indikator Penurunan Kesadaran Pancasila</h3>
+            <div class="indicator-grid">
+              <div class="indicator-item">
+                <i class="fas fa-sort-amount-down"></i>
+                <h4>Menurunnya Rasa Toleransi</h4>
+                <p>
+                  Peningkatan kasus intoleransi antar umat beragama dan antar
+                  kelompok masyarakat yang mengancam persatuan bangsa.
+                </p>
+              </div>
+              <div class="indicator-item">
+                <i class="fas fa-users-slash"></i>
+                <h4>Polarisasi Sosial</h4>
+                <p>
+                  Masyarakat terpecah dalam kelompok-kelompok yang saling
+                  berseberangan, melemahkan kohesi sosial.
+                </p>
+              </div>
+              <div class="indicator-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Penyebaran Hoaks</h4>
+                <p>
+                  Meningkatnya penyebaran informasi palsu di media sosial yang
+                  memicu konflik dan perpecahan.
+                </p>
+              </div>
+              <div class="indicator-item">
+                <i class="fas fa-fist-raised"></i>
+                <h4>Radikalisme</h4>
+                <p>
+                  Munculnya paham-paham radikal yang bertentangan dengan
+                  nilai-nilai Pancasila dan kebhinekaan.
+                </p>
+              </div>
+               <div class="indicator-item">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <h4>Penurunan Pendidikan Nilai</h4>
+      <p>
+        Kurangnya penanaman nilai-nilai Pancasila di dunia pendidikan menyebabkan generasi muda kurang memahami dan menghayati ideologi bangsa.
+      </p>
+    </div>
+    <div class="indicator-item">
+      <i class="fas fa-hand-holding-usd"></i>
+      <h4>Korupsi dan Penyalahgunaan Wewenang</h4>
+      <p>
+        Praktik korupsi yang meluas menunjukkan melemahnya integritas dan semangat gotong royong dalam kehidupan berbangsa.
+      </p>
+    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<section class="pelanggaran-section section" id="kasus">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Contoh Pelanggaran Nilai Pancasila</h2>
+      <p class="section-subtitle">
+        Contoh nyata pelanggaran nilai Pancasila yang pernah terjadi di Indonesia, dikaitkan dengan masing-masing sila
+      </p>
+    </div>
+
+    <div class="pelanggaran-grid">
+      <!-- Kartu 1 -->
+      <div class="pelanggaran-card">
+        <img src="gereja.jpg" alt="Gereja Cilegon" class="pelanggaran-img" />
+        <div class="pelanggaran-content">
+          <h3>Sila 1 – Ketuhanan Yang Maha Esa</h3>
+          <p><strong>Kejadian:</strong> Penolakan Gereja HKBP di Cilegon (2022)</p>
+          <p><strong>Pelanggaran:</strong> Intoleransi terhadap kebebasan beragama</p>
+          <a href="https://nasional.kompas.com/read/2022/09/11/15143501/kasus-penolakan-gereja-di-cilegon-imparsial-minta-kepala-daerah-tak#:~:text=JAKARTA%2C%20KOMPAS.com%20-%20Lembaga%20pemantau%20hak%20asasi%20manusia,di%20Kota%20Cilegon%2C%20Banten%2C%20pada%207%20September%202022." target="_blank">Baca Berita</a>
+        </div>
+      </div>
+
+      <!-- Kartu 2 -->
+      <div class="pelanggaran-card">
+        <img src="bully.jpg" alt="Bullying Binus" class="pelanggaran-img" />
+        <div class="pelanggaran-content">
+          <h3>Sila 2 – Kemanusiaan yang Adil dan Beradab</h3>
+          <p><strong>Kejadian:</strong> Bullying di SMP Binus Serpong (2023)</p>
+          <p><strong>Pelanggaran:</strong> Kekerasan fisik & verbal terhadap sesama</p>
+          <a href="https://www.bbc.com/indonesia/articles/c4njy81z0dno" target="_blank">Baca Berita</a>
+        </div>
+      </div>
+      <!-- Kartu 3 -->
+<div class="pelanggaran-card">
+  <img src="sara.jpg" alt="Ujaran Kebencian SARA" class="pelanggaran-img" />
+  <div class="pelanggaran-content">
+    <h3>Sila 3 – Persatuan Indonesia</h3>
+    <p><strong>Kejadian:</strong> Ujaran kebencian SARA oleh seleb TikTok (2024)</p>
+    <p><strong>Pelanggaran:</strong> Menyulut konflik dan mengancam kerukunan bangsa</p>
+    <a href="https://langgam.id/ujaran-kebencian-terhadap-minoritas-meningkat-di-tiktok-selama-kampanye-pilkada-2024/" target="_blank">Baca Berita</a>
+  </div>
+</div>
+
+<!-- Kartu 4 -->
+<div class="pelanggaran-card">
+  <img src="kpk.jpg" alt="Revisi UU KPK" class="pelanggaran-img" />
+  <div class="pelanggaran-content">
+    <h3>Sila 4 – Kerakyatan & Permusyawaratan</h3>
+    <p><strong>Kejadian:</strong> Revisi UU KPK tanpa musyawarah publik (2019)</p>
+    <p><strong>Pelanggaran:</strong> Pengambilan keputusan sepihak tanpa keterlibatan rakyat</p>
+    <a href="https://youtu.be/b1jT50YHzVo" target="_blank">Baca Berita</a>
+  </div>
+</div>
+
+<!-- Kartu 5 -->
+<div class="pelanggaran-card">
+  <img src="bansos.jpg" alt="Korupsi Bansos" class="pelanggaran-img" />
+  <div class="pelanggaran-content">
+    <h3>Sila 5 – Keadilan Sosial</h3>
+    <p><strong>Kejadian:</strong> Korupsi bantuan sosial oleh Menteri Sosial (2020)</p>
+    <p><strong>Pelanggaran:</strong> Merugikan rakyat miskin demi kepentingan pribadi</p>
+    <a href="https://nasional.kompas.com/read/2021/08/23/18010551/awal-mula-kasus-korupsi-bansos-covid-19-yang-menjerat-juliari-hingga-divonis" target="_blank">Baca Berita</a>
+  </div>
+</div>
+</section>
+<section>
+     <section id="hasil-survei" class="section">
+  <div class="container">
+    <div class="section-header">
+    <h2 class="section-title">Penelitian terhadap Pengetahuan Pancasila pada Generasi Masa Kini</h2>
+ </div>
+  
+
+    <div class="survey-summary">
+      <h3>🔍 Ringkasan Survei:</h3>
+      <ul>
+        <li><strong>Mayoritas responden</strong> adalah perempuan berusia 18–30 tahun (mahasiswa & masyarakat umum).</li>
+        <li><strong>Semua responden</strong> tahu atau pernah dengar tentang Pancasila.</li>
+        <li><strong>Sila yang paling sering diterapkan:</strong> Ketuhanan dan Kemanusiaan.</li>
+        <li><strong>75% responden</strong> aktif menyampaikan pendapat secara musyawarah.</li>
+        <li><strong>Alasan lupa Pancasila:</strong> dominasi budaya luar, penyampaian membosankan, kurang pembimbingan.</li>
+        <li><strong>Solusi kreatif:</strong> konten media sosial, festival budaya, diskusi, dan pendekatan praktik nyata.</li>
+        <li><strong>Kesimpulan:</strong>Kalangan lebih muda (SMP-SMA) butuh pendekatan menarik dan edukasi kontekstual.
+
+Kalangan mahasiswa mulai sadar, tapi terganggu oleh gaya penyampaian yang kaku dan tidak relate.
+
+Kalangan dewasa memahami pentingnya Pancasila dan masih jadi pelaku utama pengamalan nilai-nilai tersebut.</li>
+      </ul>
+    </div>
+
+    <section class="section_new">
+        <div class="survey-chart-area">
+            <h3>📊 Grafik Hasil Survei</h3>
+            
+            <div class="chart-grid">
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Demografi</div>
+                    <img src="usia.png" alt="Grafik Usia Responden" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Distribusi Usia Responden</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Status</div>
+                    <img src="sttaus.png" alt="Grafik Status Responden" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Status Pekerjaan Responden</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Pengetahuan</div>
+                    <img src="mendengar.png" alt="Grafik Pengetahuan Pancasila" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Tingkat Pengetahuan Pancasila</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Implementasi</div>
+                    <img src="menerapkan.png" alt="Grafik Penerapan Pancasila" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Frekuensi Penerapan Pancasila</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Sejarah</div>
+                    <img src="pidato.png" alt="Grafik Pengetahuan Sejarah" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Pengetahuan Tokoh Sejarah</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Nilai</div>
+                    <img src="nilai.png" alt="Grafik Pemahaman Nilai" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Pemahaman Nilai-nilai Pancasila</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Analisis</div>
+                    <img src="Screenshot 2025-06-06 112052.png" alt="Grafik Alasan Melupakan" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Faktor Penyebab Melupakan</div>
+                </div>
+
+                <div class="chart-container" tabindex="0">
+                    <div class="chart-badge">Solusi</div>
+                    <img src="Screenshot 2025-06-06 112232.png" alt="Grafik Ide Solusi" class="survey-chart" loading="lazy" />
+                    <div class="chart-title">Ide & Rekomendasi Solusi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal untuk zoom gambar -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+
+<div class="dashboard-wrapper">
+      <div class="dashboard-header">
+        <h1>Akumulasi Hasil Survei Pancasila</h1>
+        <p>
+          Analisis Interaktif Pengetahuan dan Penerapan Pancasila di Indonesia
+        </p>
+      </div>
+
+      <div class="metrics-container">
+        <div class="metric-tile" onclick="showDetails('pemahaman')">
+          <div class="metric-value" id="pemahaman-counter">0%</div>
+          <div class="metric-title">Benar-Benar Paham</div>
+          <div class="metric-desc">
+            Mayoritas responden memiliki pemahaman yang solid tentang Pancasila
+          </div>
+          <div class="metric-progress">
+            <div class="progress-indicator" style="width: 87.5%"></div>
+          </div>
+        </div>
+
+        <div class="metric-tile" onclick="showDetails('penerapan')">
+          <div class="metric-value" id="penerapan-counter">0%</div>
+          <div class="metric-title">Sangat Sering Menerapkan</div>
+          <div class="metric-desc">
+            Responden yang aktif mengamalkan nilai Pancasila setiap hari
+          </div>
+          <div class="metric-progress">
+            <div class="progress-indicator" style="width: 25%"></div>
+          </div>
+        </div>
+
+        <div class="metric-tile" onclick="showDetails('sejarah')">
+          <div class="metric-value" id="sejarah-counter">0%</div>
+          <div class="metric-title">Tahu Sejarah Pancasila</div>
+          <div class="metric-desc">
+            Mengetahui peran Soekarno dalam sejarah lahirnya Pancasila
+          </div>
+          <div class="metric-progress">
+            <div class="progress-indicator" style="width: 87.5%"></div>
+          </div>
+        </div>
+
+        <div class="metric-tile" onclick="showDetails('sila')">
+          <div class="metric-value" id="sila-counter">0%</div>
+          <div class="metric-title">Menerapkan Sila 1 & 2</div>
+          <div class="metric-desc">
+            Penerapan nilai Ketuhanan dan Kemanusiaan yang tinggi
+          </div>
+          <div class="metric-progress">
+            <div class="progress-indicator" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+
+       <div class="analysis-section">
+        <h2>💡 Insight & Kesimpulan</h2>
+        <div class="insight-layout">
+            <div class="insight-box" data-category="implementasi">
+                <div class="stats-overlay">Gap 62.5%</div>
+                <h3>🎯 Gap Implementasi</h3>
+                <p>
+                    Meskipun 87.5% paham Pancasila, hanya 25% yang sangat sering
+                    menerapkannya. Gap sebesar 62.5% menunjukkan perlunya strategi
+                    implementasi yang lebih konkret.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+
+            <div class="insight-box" data-category="ketimpangan">
+                <div class="stats-overlay">Selisih 37.5%</div>
+                <h3>⚖️ Ketimpangan Antar Sila</h3>
+                <p>
+                    Sila 1 & 2 diterapkan oleh 75% responden, sedangkan Sila 3, 4, & 5
+                    hanya 37.5%. Perlu penguatan nilai persatuan, demokrasi, dan
+                    keadilan sosial.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+
+            <div class="insight-box" data-category="sejarah">
+                <div class="stats-overlay">87.5% Tahu</div>
+                <h3>📚 Pengetahuan Sejarah Solid</h3>
+                <p>
+                    87.5% mengetahui peran Soekarno, menunjukkan edukasi sejarah yang
+                    berhasil. Ini bisa menjadi fondasi untuk penguatan implementasi.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+
+            <div class="insight-box" data-category="rekomendasi">
+                <div class="stats-overlay">4 Strategi</div>
+                <h3>🚀 Rekomendasi Strategis</h3>
+                <p>
+                    Fokus pada program edukasi praktis, penguatan sila 3-5, dan
+                    integrasi nilai Pancasila dalam aktivitas sehari-hari generasi
+                    muda.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+
+            <div class="insight-box" data-category="generasi">
+                <div class="stats-overlay">Usia 17-25</div>
+                <h3>👥 Tantangan Generasi Muda</h3>
+                <p>
+                    Generasi muda memiliki pemahaman teoritis yang baik namun 
+                    mengalami kesulitan dalam aplikasi praktis. Diperlukan pendekatan 
+                    yang lebih relatable dan kontekstual.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+
+            <div class="insight-box" data-category="potensi">
+                <div class="stats-overlay">75% Potensi</div>
+                <h3>🌟 Potensi Masa Depan</h3>
+                <p>
+                    Tingginya antusiasme untuk belajar lebih dalam (75%) menunjukkan 
+                    potensi besar. Momentum ini perlu dimanfaatkan untuk menciptakan 
+                    program berkelanjutan.
+                </p>
+                <div class="progress-bar"></div>
+                <div class="click-hint">Klik untuk detail</div>
+            </div>
+        </div>
+    </div>
+
+      <div class="dashboard-footer">
+        <p>
+          © 2025 Dashboard Survei Pancasila | Data berdasarkan survei terkini
+          dengan 8 responden
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="detailModal" class="detail-modal">
+      <div class="modal-container">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+<section id="solusi" class="section">
+  <div class="container">
+      <div class="section-header">
+    <h2 class="section-title">Solusi Meningkatkan Kesadaran Pancasila</h2>
+    <p class="section-subtitle">
+      Inilah langkah-langkah kreatif dan strategis yang dapat dilakukan agar nilai-nilai Pancasila lebih dipahami dan diamalkan oleh generasi muda.
+    </p>
+</div>
+    <div class="solusi-grid">
+      <div class="solusi-card">
+        <h3>📘 Edukasi Berbasis Praktik</h3>
+        <p>Ubah hafalan jadi pengalaman. Ajak siswa/mahasiswa terlibat dalam proyek sosial, simulasi musyawarah, dan studi kasus kehidupan nyata sesuai sila Pancasila.</p>
+      </div>
+
+      <div class="solusi-card">
+        <h3>📱 Kampanye Media Sosial</h3>
+        <p>Gunakan platform populer seperti TikTok, Reels, dan YouTube Shorts untuk menyebarkan pesan Pancasila dalam bentuk video kreatif, komik pendek, dan challenge positif.</p>
+      </div>
+
+      <div class="solusi-card">
+        <h3>🎮 Kuis & Media Interaktif</h3>
+        <p>Buat kuis “Seberapa Pancasila Kamu?”, simulasi klik-sila, dan bahkan game edukatif yang menyisipkan nilai-nilai Pancasila secara menyenangkan.</p>
+      </div>
+
+      <div class="solusi-card">
+        <h3>👥 Komunitas & Diskusi</h3>
+        <p>Bangun forum reflektif untuk siswa, mahasiswa, dan komunitas muda agar mereka bisa berdiskusi santai tapi bermakna tentang nilai-nilai kebangsaan dan toleransi.</p>
+      </div>
+
+      <div class="solusi-card">
+        <h3>🌟 Keteladanan & Aksi Nyata</h3>
+        <p>Berikan ruang dan apresiasi untuk tindakan kecil yang mencerminkan nilai Pancasila, seperti membantu teman, menghargai perbedaan, atau aktif musyawarah.</p>
+      </div>
+
+      <div class="solusi-card">
+  <h3>📚 Integrasi Pancasila dalam Kurikulum</h3>
+  <p>Masukkan materi Pancasila secara kreatif dan kontekstual dalam pembelajaran di sekolah dan kampus, dengan metode diskusi, proyek kelompok, dan studi kasus yang relevan dengan kehidupan sehari-hari generasi muda.</p>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<section id="kuis" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Kuis Interaktif Pancasila</h2>
+      <p class="section-subtitle">
+        Yuk uji seberapa jauh kamu mengenal dan mengamalkan nilai-nilai Pancasila dalam kehidupan sehari-hari!
+      </p>
+      <a href="quiz.html" class="btn-kuis">Mulai Kuis Sekarang</a>
+    </div>
+  </div>
+</section>
+
+    <!-- Vision Section -->
+    <section class="vision-section section" id="visi">
+      <div class="container">
+        <div class="vision-content">
+          <h2 class="section-title">Tujuan dan Visi Website</h2>
+          <p class="vision-text">
+            Melalui platform ini, kami berupaya mengembalikan
+            <span class="vision-highlight">"suara yang terlupa"</span>
+            - yaitu makna sejati dari setiap sila Pancasila yang seringkali
+            tenggelam dalam hiruk pikuk kehidupan modern. Kami percaya bahwa
+            dengan memahami dan mengamalkan nilai-nilai Pancasila, generasi muda
+            dapat menjadi agen perubahan yang membawa Indonesia menuju masa
+            depan yang lebih baik, adil, dan sejahtera.
+          </p>
+          <p class="vision-text">
+            Website ini bukan hanya sekedar arsip digital, tetapi sebuah gerakan
+            untuk
+            <span class="vision-highlight"
+              >menghidupkan kembali semangat Pancasila</span
+            >
+            di era digital ini. Mari bersama-sama menjadikan Pancasila sebagai
+            <span class="vision-highlight">panduan hidup yang nyata</span>
+            dalam membangun Indonesia yang lebih maju, adil, dan bermartabat.
+          </p>
+          <p class="vision-text">
+            Bergabunglah dengan kami dalam misi mulia ini - karena
+            <span class="vision-highlight"
+              >masa depan Indonesia ada di tangan generasi yang memahami dan
+              mengamalkan Pancasila</span
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 100) {navbar.style.background = "rgba(10, 10, 26, 0.98)";
+          navbar.style.boxShadow = "0 5px 20px rgba(0, 0, 0, 0.3)";
+        } else {
+          navbar.style.background = "rgba(10, 10, 26, 0.95)";
+          navbar.style.boxShadow = "none";
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(
+          ".welcome-card, .sila-card, .tokoh-card, .video-card, .timeline-item"
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(50px)";
+          el.style.transition = "all 0.8s ease";
+          observer.observe(el);
+        });
+
+     // Parallax effect for hero
+window.addEventListener("scroll", function () {
+  const scrolled = window.pageYOffset;
+  const rate = scrolled * -0.2;
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    hero.style.transform = `translateY(${rate}px)`; // Perbaikan di sini
+  }
+});
+
+      // Add hover effects to cards
+      document
+        .querySelectorAll(".sila-card, .tokoh-card, .video-card")
+        .forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            this.style.transform = "translateY(-15px) scale(1.02)";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            this.style.transform = "translateY(0) scale(1)";
+          });
+        });
+
+      // Video lazy loading
+      const videoIframes = document.querySelectorAll(".video-wrapper iframe");
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            if (!iframe.src) {
+              iframe.src = iframe.dataset.src;
+            }
+          }
+        });
+      });
+
+      videoIframes.forEach((iframe) => {
+        videoObserver.observe(iframe);
+      });
+
+      // Add dynamic background particles
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.style.cssText = `
+          position: fixed;
+          width: 4px;
+          height: 4px;
+          background: rgba(255, 107, 53, 0.3);
+          border-radius: 50%;
+          pointer-events: none;
+          z-index: 1;
+          animation: float 8s linear infinite;
+        `;
+
+        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.animationDelay = Math.random() * 8 + "s";
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();  }, 8000);
+      }
+
+      // Create particles periodically
+      setInterval(createParticle, 3000);
+
+      // Add CSS for particle animation
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes float {
+          0% {
+            transform: translateY(100vh) scale(0);
+            opacity: 1;
+          }
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100px) scale(1);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+    </script>
+    <script>
+  function tampilkanAksi(sila) {
+    const aksi = {
+      1: [
+        "Menghargai teman yang berbeda agama dan tidak mengganggu saat mereka beribadah.",
+        "Mengikuti kegiatan lintas agama di sekolah/kampus untuk mempererat toleransi."
+      ],
+      2: [
+        "Menolong teman yang mengalami bullying tanpa melihat latar belakangnya.",
+        "Berempati terhadap korban bencana dan ikut donasi kemanusiaan."
+      ],
+      3: [
+        "Tidak menyebarkan ujaran kebencian di media sosial meskipun berbeda pendapat.",
+        "Ikut dalam kegiatan kebangsaan yang merangkul semua suku dan budaya."
+      ],
+      4: [
+        "Menghargai keputusan hasil rapat walau bukan pilihan pribadi.",
+        "Mendengarkan pendapat teman saat berdiskusi, bukan memotong atau mendominasi."
+      ],
+      5: [
+        "Menyisihkan uang jajan untuk bantu teman yang kesulitan.",
+        "Ikut kerja bakti membersihkan lingkungan tanpa pamrih."
+      ]
+    };
+
+    const list = aksi[sila].map(item => `<li>${item}</li>`).join('');
+    document.getElementById("output-aksi").innerHTML = `
+      <p><strong>Contoh aksi nyata dari Sila ${sila}:</strong></p>
+      <ul>${list}</ul>
+    `;
+  }
+
+  // Animation counters
+function animateCounter(id, target) {
+  const element = document.getElementById(id);
+  let current = 0;
+  const increment = target / 100;
+  const timer = setInterval(function () {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    element.textContent = current.toFixed(1) + "%";
+  }, 20);
+}
+
+// Initialize counters on page load
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    animateCounter("pemahaman-counter", 87.5);
+    animateCounter("penerapan-counter", 25);
+    animateCounter("sejarah-counter", 87.5);
+    animateCounter("sila-counter", 75);
+  }, 500);
+});
+
+// Chart configurations
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "bottom",
+      labels: {
+        padding: 20,
+        usePointStyle: true,
+      },
+    },
+  },
+  animation: {
+    duration: 2000,
+    easing: "easeInOutQuart",
+  },
+};
+
+// Initialize charts
+let charts = {};
+
+function initCharts() {
+  // Pemahaman Chart
+  const pemahamanCtx = document
+    .getElementById("pemahamanChart")
+    .getContext("2d");
+  charts.pemahaman = new Chart(pemahamanCtx, {
+    type: "doughnut",
+    data: {
+      labels: ["Benar-benar Paham", "Kurang Memahami", "Tidak Tahu"],
+      datasets: [
+        {
+          data: [87.5, 12.5, 0],
+          backgroundColor: ["#667eea", "#764ba2", "#f093fb"],
+          borderWidth: 2,
+          borderColor: "#fff",
+        },
+      ],
+    },
+    options: chartOptions,
+  });
+
+  // Penerapan Chart
+  const penerapanCtx = document
+    .getElementById("penerapanChart")
+    .getContext("2d");
+  charts.penerapan = new Chart(penerapanCtx, {
+    type: "pie",
+    data: {
+      labels: ["Sangat Sering", "Sering", "Jarang", "Tidak Pernah"],
+      datasets: [
+        {
+          data: [25, 37.5, 37.5, 0],
+          backgroundColor: ["#667eea", "#4facfe", "#00f2fe", "#f093fb"],
+          borderWidth: 2,
+          borderColor: "#fff",
+        },
+      ],
+    },
+    options: chartOptions,
+  });
+
+  // Sila Chart
+  const silaCtx = document.getElementById("silaChart").getContext("2d");
+  charts.sila = new Chart(silaCtx, {
+    type: "bar",
+    data: {
+      labels: ["Sila 1", "Sila 2", "Sila 3", "Sila 4", "Sila 5"],
+      datasets: [
+        {
+          label: "Tingkat Penerapan (%)",
+          data: [75, 75, 37.5, 37.5, 37.5],
+          backgroundColor: [
+            "rgba(102, 126, 234, 0.8)",
+            "rgba(118, 75, 162, 0.8)",
+            "rgba(79, 172, 254, 0.8)",
+            "rgba(0, 242, 254, 0.8)",
+            "rgba(240, 147, 251, 0.8)",
+          ],
+          borderColor: ["#667eea", "#764ba2", "#4facfe", "#00f2fe", "#f093fb"],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      ...chartOptions,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            callback: function (value) {
+              return value + "%";
+            },
+          },
+        },
+      },
+    },
+  });
+
+  // Demografi Chart
+  const demografiCtx = document
+    .getElementById("demografiChart")
+    .getContext("2d");
+  charts.demografi = new Chart(demografiCtx, {
+    type: "polarArea",
+    data: {
+      labels: ["<13 tahun", "13-17 tahun", "18-22 tahun", "23-30 tahun"],
+      datasets: [
+        {
+          data: [12.5, 12.5, 37.5, 37.5],
+          backgroundColor: [
+            "rgba(102, 126, 234, 0.6)",
+            "rgba(118, 75, 162, 0.6)",
+            "rgba(79, 172, 254, 0.6)",
+            "rgba(240, 147, 251, 0.6)",
+          ],
+          borderColor: ["#667eea", "#764ba2", "#4facfe", "#f093fb"],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: chartOptions,
+  });
+}
+
+// Animate specific chart
+function animateChart(chartId) {
+  const chartName = chartId.replace("Chart", "");
+  if (charts[chartName]) {
+    charts[chartName].update("active");
+  }
+}
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+  const modal = document.getElementById("detailModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Initialize charts when page loads
+window.addEventListener("load", function () {
+  setTimeout(initCharts, 1000);
+});
+
+// Add some interactive effects
+document.addEventListener("DOMContentLoaded", function () {
+  // Add hover effects to metric tiles
+  const metricTiles = document.querySelectorAll(".metric-tile");
+  metricTiles.forEach((tile) => {
+    tile.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-12px) scale(1.03)";
+    });
+
+    tile.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0) scale(1)";
+    });
+  });
+});
+<script>
+  function toggleMenu() {
+    const menu = document.querySelector(".nav-menu");
+    menu.classList.toggle("active");
+  }
+</script>
+
+</script>
+
+  </body>
+</html>
